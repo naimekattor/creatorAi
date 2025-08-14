@@ -5,7 +5,7 @@ export default function WhySection() {
     <section className="relative w-full overflow-hidden bg-black">
       {/* Background video */}
       <video
-        src="/video/interview-video.mp4"
+        src="https://res.cloudinary.com/dcykzqkez/video/upload/f_mp4/v1755171228/interview-video_eobprg.mp4"
         autoPlay
         muted
         loop

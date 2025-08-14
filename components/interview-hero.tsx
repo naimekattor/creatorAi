@@ -2,7 +2,7 @@ export default function InterviewHero() {
   return (
     <section className="relative w-full overflow-hidden bg-black">
       <video
-        src="/video/creator-video.mp4"
+        src="https://res.cloudinary.com/dcykzqkez/video/upload/v1755171385/creator-video_m2xzsv.mp4"
         width={1600}
         height={795}
         autoPlay
