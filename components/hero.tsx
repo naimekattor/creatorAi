@@ -6,7 +6,7 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-black h-[795px]">
       <video
-        src="/video/heroVideo1.mp4"
+        src="/video/heroVideo2.mov"
         width={1600}
         height={795}
         autoPlay
