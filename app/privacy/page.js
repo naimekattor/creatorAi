@@ -14,11 +14,12 @@ export default function PrivacyPage() {
               <p className="text-gray-300 mb-6">
                 <strong>Effective Date:</strong> [Insert Date]
                 <br />
-                Thank you for visiting [Your Website Name] ("we", "our", "us").
-                Your privacy is important to us. This Privacy Policy explains
-                how we collect, use, disclose, and safeguard your personal
-                information when you visit or interact with our website
-                [www.yourwebsite.com] (the "Site").
+                Thank you for visiting [Your Website Name] (&quot;we&quot;,
+                &quot;our&quot;, &quot;us&quot;). Your privacy is important to
+                us. This Privacy Policy explains how we collect, use, disclose,
+                and safeguard your personal information when you visit or
+                interact with our website [www.yourwebsite.com] (the
+                &quot;Site&quot;).
               </p>
             </div>
 
@@ -132,7 +133,7 @@ export default function PrivacyPage() {
 
             <section>
               <h2 className="text-2xl font-semibold mb-4 text-white">
-                7. Children's Privacy
+                7. Children&apos;s Privacy
               </h2>
               <p className="text-gray-300 mb-4">
                 Our services are not directed to children under 13. We do not
@@ -146,7 +147,8 @@ export default function PrivacyPage() {
               </h2>
               <p className="text-gray-300 mb-4">
                 We may update this Privacy Policy from time to time. Changes
-                will be posted on this page with an updated "Effective Date."
+                will be posted on this page with an updated &quot;Effective
+                Date.
               </p>
             </section>
 

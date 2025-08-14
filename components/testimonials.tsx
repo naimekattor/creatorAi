@@ -96,7 +96,12 @@ export default function Testimonials() {
                   //   background: "#313131",
                   // }}
                   >
-                    <img src="/images/qoute.svg" alt="qoute" />
+                    <Image
+                      width={33}
+                      height={33}
+                      src="/images/qoute.svg"
+                      alt="qoute"
+                    />
                   </div>
                 </div>
               </CardHeader>

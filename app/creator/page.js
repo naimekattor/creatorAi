@@ -1,6 +1,4 @@
-import { Button } from "@/components/ui/button";
-import { Input } from "@/components/ui/input";
-import { Paperclip, Mic, Send } from "lucide-react";
+import { Paperclip, Send } from "lucide-react";
 import Image from "next/image";
 
 export default function CreatorPage() {

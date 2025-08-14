@@ -1,5 +1,3 @@
-import Image from "next/image";
-
 export default function InterviewHero() {
   return (
     <section className="relative w-full overflow-hidden bg-black">

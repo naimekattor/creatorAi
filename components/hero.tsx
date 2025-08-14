@@ -1,6 +1,5 @@
 import Image from "next/image";
-import { Button } from "@/components/ui/button";
-import { Mic, Paperclip, Send } from "lucide-react";
+import { Paperclip, Send } from "lucide-react";
 
 export default function Hero() {
   return (

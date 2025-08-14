@@ -1,11 +1,3 @@
-import { Metadata } from "next";
-
-export const metadata = {
-  title: "About - Creator AI",
-  description:
-    "Learn about Creator AI's mission to help people adapt to the changing job market through AI-powered resume building.",
-};
-
 export default function AboutPage() {
   return (
     <div className="min-h-screen bg-black text-white">
