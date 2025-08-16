@@ -14,10 +14,10 @@ export default function InterviewHero() {
       ></video>
       <div className="absolute inset-0 flex items-center justify-center">
         <div className="container relative mx-auto px-4 py-20 text-center md:py-28">
-          <h2 className="mx-auto w-1/2 text-3xl uppercase tracking-wide text-white sm:text-4xl font-bold md:text-[42px]">
+          <h2 className="mx-auto md:w-1/2 w-full text-2xl uppercase tracking-wide text-white sm:text-3xl font-bold md:text-[42px]">
             Make every job interview count
           </h2>
-          <p className="mx-auto mt-4 text-[24px] w-1/3 text-[#F6F6F6">
+          <p className="mx-auto mt-4 md:text-[24px] text-[18px] md:w-1/3 w-full text-[#a7a7a7]">
             Build a powerful CV that highlights your best skills
           </p>
         </div>

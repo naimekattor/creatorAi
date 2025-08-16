@@ -23,7 +23,7 @@ export default function Hero() {
             <h1 className="text-3xl  tracking-wider text-white text-[40px] font-bold sm:text-4xl">
               Hi, Describe your details Here
             </h1>
-            <p className="mt-3 text-[#979797] text-[22px] w-1/2 mx-auto">
+            <p className="mt-3 text-[#979797] text-[22px] md:w-1/2 w-full mx-auto">
               Provide your desired job and your resume details we will prepare
               best resume for you
             </p>

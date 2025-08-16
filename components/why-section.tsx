@@ -36,7 +36,7 @@ export default function WhySection() {
             <h3 className="text-2xl sm:text-3xl lg:text-4xl font-semibold">
               Creator Ai
             </h3>
-            <p className="mt-2 text-lg sm:text-xl text-[#A7A7A7]">
+            <p className="mt-2 text-lg sm:text-xl text-[#ffffff]">
               Why is Resuma suitable for?
             </p>
             <p className="mt-4 text-base sm:text-lg text-[#A7A7A7] leading-relaxed">
