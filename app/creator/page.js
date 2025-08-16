@@ -123,8 +123,6 @@ export default function CreatorPage() {
     return `${mins}:${secs.toString().padStart(2, "0")}`;
   };
 
-  // Add some demo messages for testing scroll
-
   return (
     <section className="relative w-full h-[calc(100vh-100px)] flex flex-col overflow-hidden">
       {/* Background Image */}
@@ -133,9 +131,6 @@ export default function CreatorPage() {
           alt="creatorbg"
           src="/images/creator-bg.png"
           className="h-full w-full object-cover"
-          onError={(e) => {
-            e.target.src = `data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" width="1440" height="960" viewBox="0 0 1440 960"><defs><linearGradient id="bg" x1="0%" y1="0%" x2="100%" y2="100%"><stop offset="0%" style="stop-color:%234f46e5;stop-opacity:0.1"/><stop offset="100%" style="stop-color:%237c3aed;stop-opacity:0.1"/></linearGradient></defs><rect width="1440" height="960" fill="url(%23bg)"/></svg>`;
-          }}
         />
       </div>
 
