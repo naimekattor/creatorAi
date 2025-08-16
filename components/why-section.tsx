@@ -5,9 +5,10 @@ export default function WhySection() {
     <section className="relative w-full overflow-hidden bg-black">
       {/* Background video */}
       <video
-        src="https://res.cloudinary.com/dcykzqkez/video/upload/f_mp4/v1755171228/interview-video_eobprg.mp4"
+        src="https://res.cloudinary.com/dcykzqkez/video/upload/q_auto/f_auto/v1755171228/interview-video_eobprg.mp4"
         autoPlay
         muted
+        poster="/images/creator_poster.png"
         loop
         playsInline
         className="absolute inset-0 w-full h-full object-cover opacity-40"

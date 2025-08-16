@@ -11,15 +11,37 @@ export default function LayoutContent({
 }) {
   const pathname = usePathname();
 
+  // Routes where Header should be hidden
+  const headerExcludedRoutes = [
+    "/login",
+    "/register",
+    "/account-created-success",
+    "/activation-code",
+    "/forgot-password",
+    "/password-changes-success",
+    "/reset-password",
+  ];
+
+  // Routes where Footer should be hidden
+  const footerExcludedRoutes = [
+    "/creator",
+    ...headerExcludedRoutes, // Footer excludes everything Header excludes + creator
+  ];
+
+  const showHeader = !headerExcludedRoutes.includes(pathname);
+  const showFooter = !footerExcludedRoutes.includes(pathname);
+
   return (
     <>
-      <header className="bg-black sticky top-0 z-50">
-        <Header />
-      </header>
+      {showHeader && (
+        <header className="bg-black sticky top-0 z-50">
+          <Header />
+        </header>
+      )}
 
-      {children}
+      <main>{children}</main>
 
-      {pathname !== "/creator" && <Footer />}
+      {showFooter && <Footer />}
     </>
   );
 }

@@ -11,9 +11,7 @@ export default function AuthShell({ title, subtitle, children }: Props) {
     <div className="grid min-h-[calc(100dvh-0px)] grid-cols-1 md:grid-cols-2">
       {/* Illustration side */}
       <div className="relative hidden bg-[#f1f0f0] md:block">
-        {/* <div className="absolute left-8 top-6">
-          <Logo />
-        </div> */}
+        <div className="absolute left-8 top-6">Creator</div>
         <div className="flex h-full items-center justify-center">
           <Image
             src="/images/login-img.png"
