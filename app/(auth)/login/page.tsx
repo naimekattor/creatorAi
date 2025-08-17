@@ -12,6 +12,7 @@ import { login } from "@/lib/auth-slice";
 import { useState } from "react";
 import { Loader2 } from "lucide-react";
 import { useRouter } from "next/navigation";
+import axios from "axios";
 
 export default function LoginPage() {
   const dispatch = useAppDispatch();
@@ -23,10 +24,33 @@ export default function LoginPage() {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     const res = await dispatch(login({ email, password }));
+
     if ("payload" in res) {
       router.push("/");
     }
   };
+  // const onSubmit = async (e: React.FormEvent) => {
+  //   e.preventDefault();
+
+  //   try {
+  //     const res = await axios.post(
+  //       "http://10.10.13.73:7000/api/v1/accounts/login/",
+  //       { email, password }
+  //     );
+
+  //     console.log("Login response:", res.data);
+
+  //     // if (res.status === 200) {
+  //     //   router.push("/");
+  //     // }
+  //   } catch (err: any) {
+  //     if (err.response) {
+  //       console.error("Login failed:", err.response.data);
+  //     } else {
+  //       console.error("Error while logging in:", err.message);
+  //     }
+  //   }
+  // };
 
   return (
     <AuthShell
