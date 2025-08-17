@@ -70,6 +70,7 @@ export default function Testimonials() {
                   alt={`${t.name} avatar`}
                   width={77}
                   height={77}
+                  loading="lazy"
                   className="h-[77px] w-[77px] rounded-full object-cover"
                 />
                 <div>
@@ -101,6 +102,7 @@ export default function Testimonials() {
                       height={33}
                       src="/images/qoute.svg"
                       alt="qoute"
+                      loading="lazy"
                     />
                   </div>
                 </div>

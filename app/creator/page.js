@@ -1,7 +1,7 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import { Paperclip, Send, X, FileText, Image } from "lucide-react";
-
+import { Paperclip, Send, X, FileText, Image as ImageIcon } from "lucide-react";
+import Image from "next/image";
 export default function CreatorPage() {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
@@ -127,10 +127,13 @@ export default function CreatorPage() {
     <section className="relative w-full h-[calc(100vh-100px)] flex flex-col overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
-        <img
+        <Image
           alt="creatorbg"
           src="/images/creator-bg.png"
           className="h-full w-full object-cover"
+          width={1920}
+          height={1080}
+          sizes="100vw"
         />
       </div>
 
@@ -202,7 +205,7 @@ export default function CreatorPage() {
                               className="flex items-center gap-2 text-xs bg-black/10 rounded-lg px-2 py-1"
                             >
                               {file.type?.startsWith("image/") ? (
-                                <Image className="w-3 h-3" />
+                                <ImageIcon className="w-3 h-3" />
                               ) : file.type?.startsWith("audio/") ? (
                                 <div className="w-3 h-3 rounded-full bg-red-400"></div>
                               ) : (
@@ -279,7 +282,7 @@ function PromptBox({
                 className="flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2 text-sm text-white"
               >
                 {file.type?.startsWith("image/") ? (
-                  <Image className="w-4 h-4" />
+                  <ImageIcon className="w-4 h-4" />
                 ) : file.type?.startsWith("audio/") ? (
                   <div className="w-4 h-4 rounded-full bg-red-500"></div>
                 ) : (

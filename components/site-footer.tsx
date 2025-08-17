@@ -42,9 +42,12 @@ export default function Footer() {
           </div>
 
           <div className="space-y-3">
-            <div className="text-sm font-semibold text-white">
+            <Link
+              href={"/privacy"}
+              className="text-sm font-semibold text-white"
+            >
               Privacy Policy
-            </div>
+            </Link>
             {/* <ul className="space-y-2 text-sm">
               <li>
                 <Link href="#" className="hover:underline">

@@ -5,12 +5,12 @@ export default function Hero() {
   return (
     <section className="relative w-full overflow-hidden bg-black h-[795px]">
       <video
-        src="https://res.cloudinary.com/dcykzqkez/video/upload/f_auto/q_auto/v1755160079/heroVideo2_evgqhe.mp4
+        src="https://res.cloudinary.com/dcykzqkez/video/upload/f_auto,q_auto,vc_auto/v1755160079/heroVideo2_evgqhe.m3u8
 "
         width={1600}
         height={795}
         autoPlay
-        poster="/images/hero_poster.png"
+        poster="https://res.cloudinary.com/dcykzqkez/image/upload/f_auto,q_auto/v1755406278/hero_poster_wddjdj.png"
         muted
         loop
         playsInline
