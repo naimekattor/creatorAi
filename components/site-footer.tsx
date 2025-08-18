@@ -24,9 +24,9 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="hover:underline">
+                {/* <Link href="#" className="hover:underline">
                   Reviews
-                </Link>
+                </Link> */}
               </li>
               {/* <li>
                 <Link href="#" className="hover:underline">
