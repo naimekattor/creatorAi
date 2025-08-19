@@ -1,5 +1,6 @@
 "use client";
-import React, { useState, useRef, useEffect } from "react";
+export const dynamic = "force-dynamic";
+import React, { useState, useRef, useEffect, Suspense } from "react";
 import {
   Paperclip,
   Send,
@@ -11,17 +12,25 @@ import {
 import Image from "next/image";
 import { useSearchParams } from "next/navigation";
 
-export default function CreatorPage() {
-  const [message, setMessage] = useState("");
-  const [messages, setMessages] = useState([]);
-  const [attachedFiles, setAttachedFiles] = useState([]);
-  const [isRecording, setIsRecording] = useState(false);
-  const [recordingTime, setRecordingTime] = useState(0);
-  const [hasAutoSent, setHasAutoSent] = useState(false);
-  const fileInputRef = useRef(null);
-  const mediaRecorderRef = useRef(null);
-  const recordingIntervalRef = useRef(null);
-  const chatEndRef = useRef(null);
+// Component to hold the content that uses useSearchParams
+function CreatorContent({
+  message,
+  setMessage,
+  messages,
+  setMessages,
+  attachedFiles,
+  setAttachedFiles,
+  isRecording,
+  setIsRecording,
+  recordingTime,
+  setRecordingTime,
+  hasAutoSent,
+  setHasAutoSent,
+  fileInputRef,
+  mediaRecorderRef,
+  recordingIntervalRef,
+  chatEndRef,
+}) {
   const searchParams = useSearchParams();
 
   // Handle auto-send from hero page
@@ -38,7 +47,7 @@ export default function CreatorPage() {
     }
   }, [searchParams, hasAutoSent]);
 
-  // simulate answer
+  // Simulate AI response
   const simulateAIResponse = () => {
     setTimeout(() => {
       const aiResponse = {
@@ -283,7 +292,44 @@ export default function CreatorPage() {
   );
 }
 
-// Extracted PromptBox component for reusability
+// Main page component with Suspense
+export default function CreatorPage() {
+  const [message, setMessage] = useState("");
+  const [messages, setMessages] = useState([]);
+  const [attachedFiles, setAttachedFiles] = useState([]);
+  const [isRecording, setIsRecording] = useState(false);
+  const [recordingTime, setRecordingTime] = useState(0);
+  const [hasAutoSent, setHasAutoSent] = useState(false);
+  const fileInputRef = useRef(null);
+  const mediaRecorderRef = useRef(null);
+  const recordingIntervalRef = useRef(null);
+  const chatEndRef = useRef(null);
+
+  return (
+    <Suspense fallback={<div>Loading...</div>}>
+      <CreatorContent
+        message={message}
+        setMessage={setMessage}
+        messages={messages}
+        setMessages={setMessages}
+        attachedFiles={attachedFiles}
+        setAttachedFiles={setAttachedFiles}
+        isRecording={isRecording}
+        setIsRecording={setIsRecording}
+        recordingTime={recordingTime}
+        setRecordingTime={setRecordingTime}
+        hasAutoSent={hasAutoSent}
+        setHasAutoSent={setHasAutoSent}
+        fileInputRef={fileInputRef}
+        mediaRecorderRef={mediaRecorderRef}
+        recordingIntervalRef={recordingIntervalRef}
+        chatEndRef={chatEndRef}
+      />
+    </Suspense>
+  );
+}
+
+// PromptBox component (unchanged)
 function PromptBox({
   message,
   setMessage,
