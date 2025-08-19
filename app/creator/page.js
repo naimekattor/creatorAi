@@ -354,7 +354,7 @@ function PromptBox({
             {attachedFiles.map((file, index) => (
               <div
                 key={index}
-                className="flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2 text-sm text-white"
+                className="flex items-center gap-2 bg-white/10 rounded-lg px-3 py-2 text-sm text-black"
               >
                 {file.type?.startsWith("image/") ? (
                   <ImageIcon className="w-4 h-4" />
