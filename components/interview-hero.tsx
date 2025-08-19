@@ -7,7 +7,7 @@ export default function InterviewHero() {
         height={795}
         autoPlay
         muted
-        poster="https://res.cloudinary.com/dcykzqkez/image/upload/q_auto,f_auto,v1755406277/interview_poster_uieiwh.png"
+        poster="https://res.cloudinary.com/dcykzqkez/image/upload/q_auto,f_auto/v1755406277/interview_poster_uieiwh.png"
         loop
         playsInline
         className="inset-0 w-full h-full object-cover opacity-40"

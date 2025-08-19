@@ -46,14 +46,17 @@ export default function FAQPage() {
     setOpenIndex(openIndex === index ? -1 : index);
   };
   return (
+
+
     <div className="bg-black min-h-screen sm:p-8 font-sans antialiased text-white">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 pt-8 rounded-2xl">
+
         {/* Left Section - Title and description */}
         <div className="lg:w-1/3 flex flex-col justify-start p-4 lg:p-6">
           <h1 className="text-3xl sm:text-4xl font-bold leading-tight mb-4 ">
             Frequently Asked Questions
           </h1>
-          <p className="text-[#A7A7A7] text-lg mb-2">
+          <p className="text-[#333333] text-lg mb-2">
             Still you have any questions? Contact our Team via
           </p>
           <a href="mailto:Demo@pdfresume.com" className=" hover:underline">
@@ -73,7 +76,7 @@ export default function FAQPage() {
                 className="flex justify-between items-center cursor-pointer"
                 onClick={() => handleToggle(index)}
               >
-                <span className="text-lg font-semibold pr-4 text-[#000000]">
+                <span className="text-lg font-semibold pr-4 text-[#262626]">
                   {item.question}
                 </span>
                 {/* Dynamically render Plus or Minus icon based on the state */}
@@ -86,7 +89,7 @@ export default function FAQPage() {
 
               {/* Answer container, conditionally rendered */}
               {openIndex === index && (
-                <div className="pt-4 text-[#000000]">
+                <div className="pt-4 text-[#4C4C4D]">
                   <p className="mb-4">{item.answer}</p>
                   {/* Conditionally render nested content if it exists */}
                   {item.nestedContent && (

@@ -1,17 +1,56 @@
 "use client";
 import React, { useState, useRef, useEffect } from "react";
-import { Paperclip, Send, X, FileText, Image as ImageIcon } from "lucide-react";
+import {
+  Paperclip,
+  Send,
+  X,
+  FileText,
+  Image as ImageIcon,
+  Mic,
+} from "lucide-react";
 import Image from "next/image";
+import { useSearchParams } from "next/navigation";
+
 export default function CreatorPage() {
   const [message, setMessage] = useState("");
   const [messages, setMessages] = useState([]);
   const [attachedFiles, setAttachedFiles] = useState([]);
   const [isRecording, setIsRecording] = useState(false);
   const [recordingTime, setRecordingTime] = useState(0);
+  const [hasAutoSent, setHasAutoSent] = useState(false);
   const fileInputRef = useRef(null);
   const mediaRecorderRef = useRef(null);
   const recordingIntervalRef = useRef(null);
   const chatEndRef = useRef(null);
+  const searchParams = useSearchParams();
+
+  // Handle auto-send from hero page
+  useEffect(() => {
+    const incomingMessage = searchParams.get("message");
+    const shouldAutoSend = searchParams.get("autoSend");
+
+    if (incomingMessage && shouldAutoSend === "true" && !hasAutoSent) {
+      setHasAutoSent(true);
+      setMessage(incomingMessage);
+      setTimeout(() => {
+        handleSend();
+      }, 1000);
+    }
+  }, [searchParams, hasAutoSent]);
+
+  // simulate answer
+  const simulateAIResponse = () => {
+    setTimeout(() => {
+      const aiResponse = {
+        id: Date.now() + 1,
+        text: "I'll help you create the best resume based on your details...",
+        files: [],
+        timestamp: new Date().toLocaleTimeString(),
+        type: "ai",
+      };
+      setMessages((prev) => [...prev, aiResponse]);
+    }, 1500);
+  };
 
   // Auto scroll to bottom of chat
   useEffect(() => {
@@ -96,17 +135,8 @@ export default function CreatorPage() {
       setMessage("");
       setAttachedFiles([]);
 
-      // Simulate AI response
-      setTimeout(() => {
-        const aiResponse = {
-          id: Date.now() + 1,
-          text: "I'll help you create the best resume based on your details. Let me analyze the information you've provided...",
-          files: [],
-          timestamp: new Date().toLocaleTimeString(),
-          type: "ai",
-        };
-        setMessages((prev) => [...prev, aiResponse]);
-      }, 1500);
+      simulateAIResponse();
+      setMessage("");
     }
   };
 
@@ -124,16 +154,15 @@ export default function CreatorPage() {
   };
 
   return (
-    <section className="relative w-full h-[calc(100vh-100px)] flex flex-col overflow-hidden">
+    <section className="relative w-full h-[calc(100vh-65px)] flex flex-col overflow-hidden">
       {/* Background Image */}
       <div className="absolute inset-0">
         <Image
           alt="creatorbg"
           src="/images/creator-bg.png"
-          className="h-full w-full object-cover"
-          width={1920}
-          height={1080}
-          sizes="100vw"
+          className=" object-cover"
+          fill
+          priority
         />
       </div>
 
@@ -271,7 +300,7 @@ function PromptBox({
   formatTime,
 }) {
   return (
-    <div className="rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur bg-white/10">
+    <div className="rounded-xl shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur bg-white">
       <div className="flex flex-col gap-3 p-5">
         {/* File attachments */}
         {attachedFiles.length > 0 && (
@@ -348,17 +377,7 @@ function PromptBox({
                   </div>
                 </div>
               ) : (
-                <svg
-                  className="w-4 h-4 text-white"
-                  fill="currentColor"
-                  viewBox="0 0 20 20"
-                >
-                  <path
-                    fillRule="evenodd"
-                    d="M7 4a3 3 0 016 0v4a3 3 0 11-6 0V4zm4 10.93A7.001 7.001 0 0017 8a1 1 0 10-2 0A5 5 0 015 8a1 1 0 00-2 0 7.001 7.001 0 006 6.93V17H6a1 1 0 100 2h8a1 1 0 100-2h-3v-2.07z"
-                    clipRule="evenodd"
-                  />
-                </svg>
+                <Mic className="text-white" />
               )}
 
               {isRecording && (

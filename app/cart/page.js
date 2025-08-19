@@ -58,7 +58,7 @@ export default function CartPage() {
 
   if (cartItems.length === 0) {
     return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-white text-black">
         <div className="container mx-auto px-4 py-16">
           <div className="text-center">
             <ShoppingBag className="mx-auto h-24 w-24 text-gray-600 mb-6" />
@@ -76,11 +76,11 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-white text-black">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Shopping Cart</h1>
-          <p className="text-gray-400">
+          <p className="">
             {cartItems.length} item{cartItems.length !== 1 ? "s" : ""} in your
             cart
           </p>
@@ -92,7 +92,7 @@ export default function CartPage() {
             {cartItems.map((item) => (
               <Card
                 key={item.id}
-                className="bg-gray-900/50 border-gray-800 p-6"
+                className="bg-[#f5f5f7] shadow-md text-black p-6"
               >
                 <div className="flex gap-4">
                   <div className="relative h-32 w-24 flex-shrink-0 overflow-hidden rounded-lg">
@@ -100,23 +100,21 @@ export default function CartPage() {
                       src={item.image || "/placeholder.svg"}
                       alt={item.name}
                       fill
-                      className="object-cover"
+                      className="object-cover shadow-md bg-white"
                     />
                   </div>
 
                   <div className="flex-1">
                     <div className="flex justify-between items-start mb-2">
                       <div>
-                        <h3 className="font-semibold text-lg text-white">
-                          {item.name}
-                        </h3>
+                        <h3 className="font-semibold text-lg ">{item.name}</h3>
                         <Badge variant="secondary" className="mt-1">
                           {item.category}
                         </Badge>
                       </div>
                       <button
                         onClick={() => removeItem(item.id)}
-                        className="text-gray-400 hover:text-red-400 p-1"
+                        className=" hover:text-red-400 p-1"
                         aria-label="Remove item"
                       >
                         <Trash2 className="h-4 w-4" />
@@ -127,7 +125,7 @@ export default function CartPage() {
                       <div className="flex items-center gap-3">
                         <button
                           onClick={() => updateQuantity(item.id, -1)}
-                          className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-600 hover:bg-gray-800"
+                          className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-600 hover:bg-white hover:text-black"
                           disabled={item.quantity <= 1}
                         >
                           <Minus className="h-3 w-3" />
@@ -135,18 +133,18 @@ export default function CartPage() {
                         <span className="w-8 text-center">{item.quantity}</span>
                         <button
                           onClick={() => updateQuantity(item.id, 1)}
-                          className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-600 hover:bg-gray-800"
+                          className="flex h-8 w-8 items-center justify-center rounded-md border border-gray-600 hover:bg-white hover:text-black"
                         >
                           <Plus className="h-3 w-3" />
                         </button>
                       </div>
 
                       <div className="text-right">
-                        <p className="text-lg font-semibold text-white">
+                        <p className="text-lg font-semibold ">
                           ${(item.price * item.quantity).toFixed(2)}
                         </p>
                         {item.quantity > 1 && (
-                          <p className="text-sm text-gray-400">
+                          <p className="text-sm ">
                             ${item.price.toFixed(2)} each
                           </p>
                         )}
@@ -160,22 +158,22 @@ export default function CartPage() {
 
           {/* Order Summary */}
           <div className="lg:col-span-1">
-            <Card className="bg-gray-900/50 border-gray-800 p-6 sticky top-24">
-              <h2 className="text-xl font-semibold mb-4 text-white">
+            <Card className="bg-[#f5f5f7] shadow-md  p-6 sticky top-24">
+              <h2 className="text-xl font-semibold mb-4 text-black">
                 Order Summary
               </h2>
 
               <div className="space-y-3 mb-6">
-                <div className="flex justify-between text-gray-300">
+                <div className="flex justify-between ">
                   <span>Subtotal</span>
                   <span>${subtotal.toFixed(2)}</span>
                 </div>
-                <div className="flex justify-between text-gray-300">
+                <div className="flex justify-between ">
                   <span>Tax</span>
                   <span>${tax.toFixed(2)}</span>
                 </div>
                 <div className="border-t border-gray-700 pt-3">
-                  <div className="flex justify-between text-lg font-semibold text-white">
+                  <div className="flex justify-between text-lg font-semibold ">
                     <span>Total</span>
                     <span>${total.toFixed(2)}</span>
                   </div>
@@ -183,19 +181,19 @@ export default function CartPage() {
               </div>
 
               <div className="space-y-3">
-                <Button className="w-full bg-blue-600 hover:bg-blue-700 text-white">
+                <Button className="w-full bg-blue-600 hover:bg-blue-700 ">
                   Proceed to Checkout
                 </Button>
                 <Button
                   variant="outline"
-                  className="w-full border-gray-600 text-gray-300 hover:bg-gray-800 bg-transparent"
+                  className="w-full border-gray-600  hover:bg-white0 bg-transparent"
                 >
                   Continue Shopping
                 </Button>
               </div>
 
               <div className="mt-6 text-center">
-                <p className="text-sm text-gray-400">
+                <p className="text-sm ">
                   Secure checkout with 256-bit SSL encryption
                 </p>
               </div>
