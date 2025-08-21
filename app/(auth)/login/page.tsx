@@ -53,10 +53,7 @@ export default function LoginPage() {
   // };
 
   return (
-    <AuthShell
-      title="Login Account"
-      subtitle="Empowering hotels and restaurants"
-    >
+    <AuthShell title="Login Account">
       <form onSubmit={onSubmit} className="space-y-5">
         <div className="space-y-2">
           <Label htmlFor="email">Email</Label>

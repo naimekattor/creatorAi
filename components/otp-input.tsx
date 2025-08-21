@@ -35,7 +35,10 @@ export default function OtpInput({
           }}
           value={v}
           onChange={(e) => handleChange(i, e.target.value)}
+          type="password"
           inputMode="numeric"
+          placeholder="*"
+          className=" rounded-full border-2 size-12 text-center placeholder:text-[18px] placeholder:text-black"
         />
       ))}
     </div>

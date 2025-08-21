@@ -29,9 +29,9 @@ export default function ChatMessage({ msg }) {
                   <Image
                     src={file.src}
                     alt="image"
-                    width={100}
-                    height={100}
-                    className="w-3 h-3"
+                    width={300}
+                    height={200}
+                    className="w-[300px] h-[200px"
                   />
                 ) : (
                   <FileText className="w-3 h-3" />

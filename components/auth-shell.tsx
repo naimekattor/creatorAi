@@ -18,7 +18,7 @@ export default function AuthShell({ title, subtitle, children }: Props) {
             <div className="flex items-center space-x-2">
               <Link
                 href={"/"}
-                className="text-2xl font-bold audiowide-regular text-gray-700"
+                className="text-[42px] font-extrabold  text-gray-700"
               >
                 Creator
               </Link>
@@ -50,7 +50,7 @@ export default function AuthShell({ title, subtitle, children }: Props) {
           <div className="flex-1 flex items-center justify-center">
             <div className="w-full max-w-md space-y-8">
               {/* Header */}
-              <div className="text-center lg:text-left">
+              <div className="text-center ">
                 {title ? (
                   <>
                     <h1 className="text-3xl lg:text-4xl font-bold text-gray-900 mb-2">

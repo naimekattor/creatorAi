@@ -8,7 +8,7 @@ import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Label } from "@/components/ui/label";
 import { useAppDispatch, useAppSelector } from "@/lib/use-redux";
-import { register, setPendingEmail } from "@/lib/auth-slice";
+import { register, setPendingEmail, setAuthFlow } from "@/lib/auth-slice";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { Loader2 } from "lucide-react";
@@ -29,8 +29,10 @@ export default function RegisterPage() {
     const res = await dispatch(
       register({ firstName, lastName, email, password })
     );
-    if ("payload" in res) {
+    if ("payload" in res && res.payload.email) {
       dispatch(setPendingEmail(email));
+
+      dispatch(setAuthFlow("register"));
       router.push("/activation-code");
     }
   };
@@ -65,7 +67,7 @@ export default function RegisterPage() {
         </div>
         <div className="space-y-2">
           <Label htmlFor="picture">Upload profile picture (Optional)</Label>
-          <Input type="file" id="picture" placeholder="Select one" required />
+          <Input type="file" id="picture" placeholder="Select one" />
         </div>
 
         <div className="space-y-2">

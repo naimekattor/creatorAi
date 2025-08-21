@@ -39,10 +39,15 @@ export default function CreatorContent({
 
   const handleSend = () => {
     if (message.trim() || attachedFiles.length > 0) {
+      const processedFiles = attachedFiles.map((file) => ({
+        name: file.name,
+        type: file.type,
+        src: URL.createObjectURL(file),
+      }));
       const newMessage = {
         id: Date.now(),
         text: message.trim(),
-        files: [...attachedFiles],
+        files: processedFiles,
         timestamp: new Date().toLocaleTimeString(),
         type: "user",
       };
