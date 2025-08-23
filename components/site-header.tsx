@@ -59,15 +59,26 @@ export default function Header() {
           </Button>
         </div>
 
-        <button
-          aria-label="Toggle menu"
-          className={`inline-flex items-center justify-center rounded-md p-2 ${
-            isHome ? "text-white" : ""
-          } hover:bg-white/10 md:hidden`}
-          onClick={() => setOpen((v) => !v)}
-        >
-          <Menu className="h-5 w-5" />
-        </button>
+        <div className=" flex items-center gap-4">
+          <Link
+            href="/cart"
+            className={`flex items-center gap-1 py-1 text-sm ${
+              isHome ? "text-slate-200" : "text-black"
+            } md:hidden`}
+          >
+            <ShoppingCart className="h-4 w-4" />
+            Cart
+          </Link>
+          <button
+            aria-label="Toggle menu"
+            className={`inline-flex items-center justify-center rounded-md p-2 ${
+              isHome ? "text-white" : ""
+            } hover:bg-white/10 md:hidden`}
+            onClick={() => setOpen((v) => !v)}
+          >
+            <Menu className="h-5 w-5" />
+          </button>
+        </div>
       </div>
 
       {open && (
@@ -96,13 +107,7 @@ export default function Header() {
             <Link href="/privacy" className="py-1 text-sm text-slate-200">
               Privacy
             </Link>
-            <Link
-              href="/cart"
-              className="flex items-center gap-1 py-1 text-sm text-slate-200"
-            >
-              <ShoppingCart className="h-4 w-4" />
-              Cart
-            </Link>
+
             <Button
               asChild
               className="mt-2 w-full rounded-md border border-blue-500/60 bg-transparent text-blue-400 hover:bg-blue-500 hover:text-white"
