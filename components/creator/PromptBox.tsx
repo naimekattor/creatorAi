@@ -1,6 +1,21 @@
 import { FileText, ImageIcon, Mic, Paperclip, Send, X } from "lucide-react";
 import { useEffect } from "react";
 
+interface PromptBoxProps {
+  message: string;
+  setMessage: React.Dispatch<React.SetStateAction<string>>;
+  attachedFiles: File[];
+  removeFile: (index: number) => void;
+  handleFileUpload: (event: React.ChangeEvent<HTMLInputElement>) => void;
+  fileInputRef: React.RefObject<HTMLInputElement | null>;
+  handleSend: () => void;
+  handleKeyPress: (e: React.KeyboardEvent<HTMLInputElement>) => void;
+  transcript: string;
+  listening: boolean;
+  startListening: () => void;
+  stopListening: () => void;
+}
+
 const PromptBox = ({
   message,
   setMessage,
@@ -14,7 +29,7 @@ const PromptBox = ({
   listening,
   startListening,
   stopListening,
-}) => {
+}: PromptBoxProps) => {
   // Update message when transcript changes
   useEffect(() => {
     if (transcript) {

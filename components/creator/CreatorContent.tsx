@@ -5,6 +5,34 @@ import { useSearchParams } from "next/navigation";
 import PromptBox from "./PromptBox";
 import ChatMessage from "./ChatMessage";
 
+interface MessageFiles {
+  name: string;
+  type: string;
+  src: string;
+}
+interface Message {
+  id: number;
+  text: string;
+  files: MessageFiles[];
+  timestamp: string;
+  type: "user" | "ai";
+}
+interface CreatorContentsProps {
+  message: string;
+  setMessage: React.Dispatch<React.SetStateAction<string>>;
+  messages: Message[];
+  setMessages: React.Dispatch<React.SetStateAction<Message[]>>;
+  attachedFiles: File[];
+  setAttachedFiles: React.Dispatch<React.SetStateAction<File[]>>;
+  hasAutoSent: boolean;
+  setHasAutoSent: React.Dispatch<React.SetStateAction<boolean>>;
+  fileInputRef: React.RefObject<HTMLInputElement | null>;
+  chatEndRef: React.RefObject<HTMLDivElement | null>;
+  transcript: string;
+  listening: boolean;
+  startListening: () => void;
+  stopListening: () => void;
+}
 export default function CreatorContent({
   message,
   setMessage,
@@ -20,31 +48,29 @@ export default function CreatorContent({
   listening,
   startListening,
   stopListening,
-}) {
+}: CreatorContentsProps) {
   const searchParams = useSearchParams();
 
-  // Handle auto-send from hero page
-  useEffect(() => {
-    const incomingMessage = searchParams.get("message");
-    const shouldAutoSend = searchParams.get("autoSend");
-
-    if (incomingMessage && shouldAutoSend === "true" && !hasAutoSent) {
-      setHasAutoSent(true);
-      setMessage(incomingMessage);
-      setTimeout(() => {
-        handleSend();
-      }, 1000);
-    }
-  }, [searchParams, hasAutoSent]);
-
-  const handleSend = () => {
+  const simulateAIResponse = React.useCallback(() => {
+    setTimeout(() => {
+      const aiResponse: Message = {
+        id: Date.now() + 1,
+        text: "I'll help you create the best resume based on your details...",
+        files: [],
+        timestamp: new Date().toLocaleTimeString(),
+        type: "ai",
+      };
+      setMessages((prev) => [...prev, aiResponse]);
+    }, 1500);
+  }, [setMessages]);
+  const handleSend = React.useCallback(() => {
     if (message.trim() || attachedFiles.length > 0) {
       const processedFiles = attachedFiles.map((file) => ({
         name: file.name,
         type: file.type,
         src: URL.createObjectURL(file),
       }));
-      const newMessage = {
+      const newMessage: Message = {
         id: Date.now(),
         text: message.trim(),
         files: processedFiles,
@@ -58,20 +84,27 @@ export default function CreatorContent({
 
       simulateAIResponse();
     }
-  };
+  }, [
+    message,
+    attachedFiles,
+    setMessages,
+    setMessage,
+    setAttachedFiles,
+    simulateAIResponse,
+  ]);
+  // Handle auto-send from hero page
+  useEffect(() => {
+    const incomingMessage = searchParams.get("message");
+    const shouldAutoSend = searchParams.get("autoSend");
 
-  const simulateAIResponse = () => {
-    setTimeout(() => {
-      const aiResponse = {
-        id: Date.now() + 1,
-        text: "I'll help you create the best resume based on your details...",
-        files: [],
-        timestamp: new Date().toLocaleTimeString(),
-        type: "ai",
-      };
-      setMessages((prev) => [...prev, aiResponse]);
-    }, 1500);
-  };
+    if (incomingMessage && shouldAutoSend === "true" && !hasAutoSent) {
+      setHasAutoSent(true);
+      setMessage(incomingMessage);
+      setTimeout(() => {
+        handleSend();
+      }, 1000);
+    }
+  }, [searchParams, hasAutoSent, setHasAutoSent, setMessage, handleSend]);
 
   const handleFileUpload = (event: React.ChangeEvent<HTMLInputElement>) => {
     const files = Array.from(event.target.files || []);

@@ -26,14 +26,18 @@ export default function RegisterPage() {
   const onSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     if (password !== confirm) return alert("Passwords do not match");
-    const res = await dispatch(
-      register({ firstName, lastName, email, password })
-    );
-    if ("payload" in res && res.payload.email) {
-      dispatch(setPendingEmail(email));
 
+    try {
+      const result = await dispatch(
+        register({ firstName, lastName, email, password })
+      ).unwrap();
+
+      dispatch(setPendingEmail(result.email));
       dispatch(setAuthFlow("register"));
       router.push("/activation-code");
+    } catch (err) {
+      console.error("Register failed:", err);
+      alert("Registration failed. Please try again.");
     }
   };
 

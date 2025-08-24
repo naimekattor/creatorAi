@@ -10,8 +10,7 @@ export const useSpeechRecognition = (lang: string = "en-US") => {
     if (typeof window === "undefined") return;
 
     const SpeechRecognition =
-      (window as any).SpeechRecognition ||
-      (window as any).webkitSpeechRecognition;
+      window.SpeechRecognition || window.webkitSpeechRecognition;
 
     if (!SpeechRecognition) {
       console.warn("Speech Recognition not supported in this browser.");
@@ -39,7 +38,7 @@ export const useSpeechRecognition = (lang: string = "en-US") => {
     recog.onerror = (err) => console.error("Speech recognition error:", err);
 
     recog.onend = () => {
-      if (listeningRef.current) recog.start(); // auto-restart if listening
+      if (listeningRef.current) recog.start();
     };
 
     recognitionRef.current = recog;

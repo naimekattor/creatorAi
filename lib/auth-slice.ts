@@ -86,7 +86,7 @@ export const forgotPassword = createAsyncThunk(
 export const verifyCode = createAsyncThunk(
   "auth/verifyCode",
   async (payload: { email: string; code: string }) => {
-    return jsonFetch<{ message: string }>("/api/auth/verify-email", {
+    return jsonFetch<{ user: User; token: string }>("/api/auth/verify-email", {
       method: "POST",
       body: JSON.stringify({
         email: payload.email,
@@ -156,7 +156,7 @@ const slice = createSlice({
         s.isLoading = true;
         s.error = null;
       })
-      .addCase(verifyCode.fulfilled, (s, a: any) => {
+      .addCase(verifyCode.fulfilled, (s, a) => {
         s.isLoading = false;
 
         if (a.payload.user && a.payload.token) {

@@ -10,14 +10,14 @@
     "lint": "next lint",
     "analyze": "cross-env ANALYZE=true ANALYZE_PORT=8889 next build",
     "analyze:server": "cross-env BUNDLE_ANALYZE=server ANALYZE_PORT=8889 next build",
-    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser ANALYZE_PORT=8889 next build",
-    "postinstall": "npm rebuild lightningcss"
+    "analyze:browser": "cross-env BUNDLE_ANALYZE=browser ANALYZE_PORT=8889 next build"
   },
   "dependencies": {
     "@radix-ui/react-collapsible": "^1.1.11",
     "@radix-ui/react-label": "^2.1.7",
     "@radix-ui/react-slot": "^1.2.3",
     "@reduxjs/toolkit": "^2.8.2",
+    "@types/dom-speech-recognition": "^0.0.6",
     "axios": "^1.11.0",
     "class-variance-authority": "^0.7.1",
     "clsx": "^2.1.1",

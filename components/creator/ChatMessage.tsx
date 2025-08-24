@@ -1,8 +1,26 @@
 import React from "react";
-import { FileText, Image as ImageIcon } from "lucide-react";
+import { FileText } from "lucide-react";
 import Image from "next/image";
 
-export default function ChatMessage({ msg }) {
+interface MessageFile {
+  name: string;
+  type: string;
+  src: string;
+}
+
+interface Message {
+  id: number;
+  text: string;
+  files: MessageFile[];
+  timestamp: string;
+  type: "user" | "ai";
+}
+
+interface ChatMessageProps {
+  msg: Message;
+}
+
+export default function ChatMessage({ msg }: ChatMessageProps) {
   return (
     <div
       className={`flex ${
