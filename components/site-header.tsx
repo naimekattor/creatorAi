@@ -53,7 +53,7 @@ export default function Header() {
         <div className="hidden md:block">
           <Button
             asChild
-            className="rounded-md border border-blue-500/60 bg-transparent px-5 text-blue-400 hover:bg-blue-500 hover:text-white"
+            className="rounded-md border border-[#1E90FF] bg-transparent px-5 text-[#1E90FF] hover:bg-blue-500 hover:text-white"
           >
             <Link href="/login">Login</Link>
           </Button>

@@ -83,28 +83,28 @@ export default function Footer() {
               <Link
                 aria-label="Facebook"
                 href="#"
-                className="rounded-md bg-[#55555c] text-white shadow-md p-2 "
+                className="rounded-md bg-[#55555c] hover:bg-[#1E90FF] text-white shadow-md p-2 "
               >
                 <Facebook className="h-4 w-4" />
               </Link>
               <Link
                 aria-label="Twitter"
                 href="#"
-                className="rounded-md bg-[#55555c] text-white shadow-md p-2 "
+                className="rounded-md bg-[#55555c] hover:bg-[#1E90FF] text-white shadow-md p-2 "
               >
                 <Twitter className="h-4 w-4" />
               </Link>
               <Link
                 aria-label="Instagram"
                 href="#"
-                className="rounded-md bg-[#55555c] text-white shadow-md p-2 "
+                className="rounded-md bg-[#55555c] hover:bg-[#1E90FF] text-white shadow-md p-2 "
               >
                 <Instagram className="h-4 w-4" />
               </Link>
               <Link
                 aria-label="LinkedIn"
                 href="#"
-                className="rounded-md bg-[#55555c] text-white shadow-md p-2 "
+                className="rounded-md bg-[#55555c] hover:bg-[#1E90FF] text-white shadow-md p-2 "
               >
                 <Linkedin className="h-4 w-4" />
               </Link>

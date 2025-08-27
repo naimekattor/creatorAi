@@ -66,7 +66,7 @@ export default function CartPage() {
             <p className="text-gray-400 mb-8">
               Browse our CV templates and add some to your cart
             </p>
-            <Button className="bg-blue-600 hover:bg-blue-700">
+            <Button className="bg-[#1E90FF] hover:bg-blue-700">
               Browse Templates
             </Button>
           </div>
@@ -76,7 +76,7 @@ export default function CartPage() {
   }
 
   return (
-    <div className="min-h-screen bg-white text-black">
+    <div className="min-h-screen bg-[#f0f8ff] text-black">
       <div className="container mx-auto px-4 py-8">
         <div className="mb-8">
           <h1 className="text-3xl font-bold mb-2">Shopping Cart</h1>

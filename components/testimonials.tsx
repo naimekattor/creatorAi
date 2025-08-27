@@ -38,12 +38,12 @@ export default function Testimonials() {
           </div>
           <div className="flex items-center gap-8 text-right">
             <div>
-              <div className="text-xl font-semibold text-blue-400">10m+</div>
+              <div className="text-xl font-semibold text-[#1E90FF]">10m+</div>
               <div className="text-xs text-slate-400">Happy People</div>
             </div>
             <div>
               <div className=" space-y-2">
-                <div className="text-xl font-semibold text-blue-400">4.88</div>
+                <div className="text-xl font-semibold text-[#1E90FF]">4.88</div>
                 <div className="text-xs text-slate-400">Overall rating</div>
                 <div className="flex items-center">
                   {[0, 1, 2, 3, 4].map((i) => (
@@ -87,16 +87,7 @@ export default function Testimonials() {
                     overflow: "hidden",
                   }}
                 >
-                  <div
-                  // style={{
-                  //   width: "33.31px",
-                  //   height: "32.46px",
-                  //   left: "0px",
-                  //   top: "0px",
-                  //   position: "absolute",
-                  //   background: "#313131",
-                  // }}
-                  >
+                  <div>
                     <Image
                       width={33}
                       height={33}

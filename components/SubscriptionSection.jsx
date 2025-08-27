@@ -83,12 +83,12 @@ export default function SubscriptionSection() {
           {plans.map((plan, index) => (
             <Card
               key={index}
-              className={`relative bg-gray-900/50 border-gray-800 hover:border-blue-500/50 transition-all duration-300 ${
+              className={`relative bg-gray-900/50 border-gray-800 hover:border-[#1E90FF] transition-all duration-300 ${
                 plan.popular ? "ring-2 ring-blue-500 scale-105" : ""
               }`}
             >
               {plan.popular && (
-                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-600 text-white px-4 py-1">
+                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#1E90FF] text-white px-4 py-1">
                   Most Popular
                 </Badge>
               )}
@@ -123,7 +123,7 @@ export default function SubscriptionSection() {
                 <Button
                   className={`w-full ${
                     plan.popular
-                      ? "bg-blue-600 hover:bg-blue-700 text-white"
+                      ? "bg-[#1E90FF] hover:bg-blue-700 text-white"
                       : "bg-gray-800 hover:bg-gray-700 text-white border border-gray-700"
                   }`}
                 >

@@ -44,7 +44,7 @@ export default function FAQPage() {
     setOpenIndex(openIndex === index ? -1 : index);
   };
   return (
-    <div className="bg-[#f5f5f7] min-h-screen font-sans antialiased text-black">
+    <div className="bg-[#f0f8ff] min-h-screen font-sans antialiased text-black">
       <div className="max-w-7xl mx-auto flex flex-col lg:flex-row gap-8 lg:gap-12 pt-8 rounded-2xl">
         {/* Left Section - Title and description */}
         <div className="lg:w-1/3 flex flex-col justify-start p-4 lg:p-6">

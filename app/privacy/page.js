@@ -2,11 +2,11 @@ import CTABanner from "../../components/cta-banner";
 
 export default function PrivacyPage() {
   return (
-    <div className="min-h-screen bg-[#f5f5f7] text-[#4D4D4D]">
+    <div className="min-h-screen bg-[#f0f8ff] text-[#4D4D4D]">
       <div className="container mx-auto px-4 py-16">
         <div className="max-w-4xl mx-auto">
           <h1 className="text-4xl font-bold mb-8 ">
-            <span className="text-blue-400">Privacy</span> Policy
+            <span className="text-[#1E90FF]">Privacy</span> Policy
           </h1>
 
           <div className="prose prose-invert max-w-none space-y-8">

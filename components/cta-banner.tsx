@@ -17,7 +17,7 @@ export default function CTABanner() {
           Use Resume Builder and land your dream job
         </h3>
         <div className="mt-8 flex justify-center">
-          <Button className="rounded-md bg-blue-600 px-6 text-white shadow hover:bg-blue-600/90">
+          <Button className="rounded-md bg-[#1E90FF] px-6 text-white shadow hover:bg-blue-600/90">
             Take a free trial now
           </Button>
         </div>
