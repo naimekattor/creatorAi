@@ -1,6 +1,6 @@
 "use client";
 import Image from "next/image";
-import { Paperclip, Send } from "lucide-react";
+import { Mic, Paperclip, Send } from "lucide-react";
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 
@@ -53,14 +53,14 @@ export default function Hero() {
             <h1 className="text-3xl tracking-wider text-white text-[40px] font-bold sm:text-4xl">
               Hi, Describe your details Here
             </h1>
-            <p className="mt-3 text-[#979797] text-[22px] md:w-1/2 w-full mx-auto">
+            <p className="mt-3 text-white/70 text-[22px] md:w-1/2 w-full mx-auto">
               Provide your desired job and your resume details we will prepare
               best resume for you
             </p>
           </div>
 
           {/* Prompt bar */}
-          <div className="mx-auto w-full max-w-5xl rounded-xl bg-white/5 shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur">
+          <div className="mx-auto w-full max-w-5xl rounded-xl bg-white shadow-[0_10px_30px_rgba(0,0,0,0.35)] backdrop-blur">
             <div className="flex flex-col gap-3 p-5">
               <div>
                 <input
@@ -69,7 +69,7 @@ export default function Hero() {
                   onKeyPress={handleKeyPress}
                   aria-label="Describe your details"
                   placeholder="Enter here your Details"
-                  className="w-full rounded-md border border-[#e3e7f1]/60 bg-black/40 px-4 py-3 text-sm text-slate-200 placeholder:text-slate-400 outline-none focus:border-blue-500 focus:ring-1 focus:ring-blue-500/40"
+                  className="w-full rounded-md border border-[#E3E7F1]/60  px-4 py-3 text-sm text-slate-200 placeholder:text-slate-400 outline-none focus:outline-none"
                 />
               </div>
               <div className="flex justify-between">
@@ -84,15 +84,9 @@ export default function Hero() {
                   <button
                     onClick={handleMicClick}
                     aria-label="Voice"
-                    className="flex h-7 w-7 items-center justify-center bg-gray-500 rounded-full hover:bg-gray-600 transition-colors cursor-pointer"
+                    className="flex h-7 w-7 items-center justify-center text-[#8F9FB0] rounded-full  transition-colors cursor-pointer"
                   >
-                    <Image
-                      alt="mic"
-                      src="/images/vector.png"
-                      width={28}
-                      height={28}
-                      className="h-4 w-4"
-                    />
+                    <Mic className="h-8 w-8" />
                   </button>
                   <button
                     onClick={handleSend}

@@ -1,7 +1,12 @@
+"use client";
 import { Button } from "@/components/ui/button";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
-import { Check, CircleCheckBig } from "lucide-react";
+import { CircleCheckBig, X } from "lucide-react";
+
+interface SubscriptionModalProps {
+  onClose: () => void;
+}
 
 const plans = [
   {
@@ -65,66 +70,82 @@ const plans = [
   },
 ];
 
-export default function SubscriptionSection() {
+export default function SubscriptionModal({ onClose }: SubscriptionModalProps) {
   return (
-    <section className="py-24 bg-black">
-      <div className="container mx-auto px-4">
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-[42px] font-bold text-white mb-4">
+    <div
+      className="fixed inset-0 z-50 flex items-start justify-center bg-black/70 pt-8 pb-8 px-2 sm:px-4 overflow-auto"
+      onClick={onClose}
+    >
+      <div
+        className="relative w-full max-w-6xl bg-[#f5f5f7] rounded-2xl p-4 sm:p-6 md:p-10 shadow-xl max-h-[90vh] overflow-auto"
+        onClick={(e) => e.stopPropagation()}
+      >
+        {/* Close Button */}
+        <button
+          className="absolute top-4 right-4 text-gray-400 hover:text-white"
+          onClick={onClose}
+        >
+          <X className="w-6 h-6" />
+        </button>
+
+        {/* Title */}
+        <div className="text-center mb-6 md:mb-8">
+          <h2 className="text-2xl md:text-4xl font-bold text-[#364056] mb-2">
             Subscription Plans
           </h2>
-          <p className="text-gray-400 text-lg max-w-2xl mx-auto">
+          <p className="text-[#364056] text-sm md:text-lg max-w-2xl mx-auto">
             Choose the perfect plan to enhance your resume and land your dream
             job
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8  mx-auto">
-          {plans.map((plan, index) => (
+        {/* Plans Grid */}
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6">
+          {plans.map((plan, idx) => (
             <Card
-              key={index}
-              className={`relative bg-gray-900/50 border-gray-800 hover:border-[#1E90FF] transition-all duration-300 h-full flex flex-col justify-between ${
+              key={idx}
+              className={`relative bg-white border-gray-700 hover:border-blue-500 transition-all duration-300 flex flex-col h-full ${
                 plan.popular ? "ring-2 ring-blue-500 scale-105" : ""
               }`}
             >
               {plan.popular && (
-                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-[#1E90FF] text-white px-4 py-1">
+                <Badge className="absolute -top-3 left-1/2 transform -translate-x-1/2 bg-blue-500 text-white px-3 py-1">
                   Most Popular
                 </Badge>
               )}
 
               <CardHeader className="text-center pb-4">
-                <CardTitle className="text-white text-xl font-bold mb-2">
+                <CardTitle className="text-white text-lg md:text-xl font-bold mb-2">
                   {plan.name}
                 </CardTitle>
-                <div className="flex items-baseline justify-center mb-4">
-                  <span className="text-4xl font-bold text-blue-400">
+                <div className="flex items-baseline justify-center mb-2">
+                  <span className="text-2xl md:text-3xl font-bold text-blue-400">
                     {plan.price}
                   </span>
                   <span className="text-gray-400 ml-1">{plan.period}</span>
                 </div>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-[#4C5467] text-sm md:text-base">
                   {plan.description}
                 </p>
               </CardHeader>
 
-              <CardContent className="pt-0">
-                <ul className="space-y-3 mb-8">
-                  {plan.features.map((feature, featureIndex) => (
-                    <li key={featureIndex} className="flex items-start gap-3">
-                      <CircleCheckBig className="w-5 h-5 text-blue-400 mt-0.5 flex-shrink-0" />
-                      <span className="text-[#A7A7A7] text-sm leading-relaxed">
+              {/* Make CardContent grow to push button down */}
+              <CardContent className="flex flex-col flex-grow pt-2 md:pt-0 justify-between">
+                <ul className="space-y-2 mb-4 md:mb-6">
+                  {plan.features.map((feature, i) => (
+                    <li key={i} className="flex items-start gap-2">
+                      <CircleCheckBig className="w-4 md:w-5 h-4 md:h-5 text-blue-400 mt-0.5 flex-shrink-0" />
+                      <span className="text-[#4C5467] text-xs md:text-sm">
                         {feature}
                       </span>
                     </li>
                   ))}
                 </ul>
-
                 <Button
-                  className={`w-full ${
+                  className={`w-full mt-auto ${
                     plan.popular
-                      ? "bg-[#1E90FF] hover:bg-blue-700 text-white"
-                      : "bg-gray-800 hover:bg-gray-700 text-white border border-gray-700"
+                      ? "bg-[#1e90ff] hover:bg-blue-600 text-white"
+                      : "bg-[#364056] hover:bg-gray-600 text-white border border-gray-600"
                   }`}
                 >
                   {plan.buttonText}
@@ -134,6 +155,6 @@ export default function SubscriptionSection() {
           ))}
         </div>
       </div>
-    </section>
+    </div>
   );
 }
