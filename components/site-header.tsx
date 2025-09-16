@@ -12,7 +12,7 @@ export default function Header() {
     <header className="sticky top-0 z-40 w-full border-b bg-white text-black backdrop-blur-xl">
       <div className="container mx-auto flex h-14 items-center justify-between px-4 sm:h-16">
         <Link href="/" className="flex items-center gap-2">
-          <span className="text-xl font-semibold tracking-tight text-black">
+          <span className="text-[36px] font-semibold tracking-tight text-[#364056]">
             Creator
           </span>
           <span className="sr-only">Go to homepage</span>
