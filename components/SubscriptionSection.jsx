@@ -108,7 +108,7 @@ export default function SubscriptionSection() {
                 </p>
               </CardHeader>
 
-              <CardContent className="pt-0">
+              <CardContent className="pt-0 flex flex-col flex-grow pt-2 md:pt-0 justify-between">
                 <ul className="space-y-3 mb-8">
                   {plan.features.map((feature, featureIndex) => (
                     <li key={featureIndex} className="flex items-start gap-3">
