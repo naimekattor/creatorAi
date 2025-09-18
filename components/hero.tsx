@@ -69,7 +69,7 @@ export default function Hero() {
                   onKeyPress={handleKeyPress}
                   aria-label="Describe your details"
                   placeholder="Enter here your Details"
-                  className="w-full rounded-md border border-[#E3E7F1]/60  px-4 py-3 text-sm text-slate-200 placeholder:text-slate-400 outline-none focus:outline-none"
+                  className="w-full rounded-md border border-[#E3E7F1]/60  px-4 py-3 text-sm text-black placeholder:text-slate-400 outline-none focus:outline-none"
                 />
               </div>
               <div className="flex justify-between">
@@ -84,9 +84,9 @@ export default function Hero() {
                   <button
                     onClick={handleMicClick}
                     aria-label="Voice"
-                    className="flex h-7 w-7 items-center justify-center text-[#8F9FB0] rounded-full  transition-colors cursor-pointer"
+                    className="flex  items-center justify-center w-11 h-11  bg-gray-500 text-white rounded-full  transition-colors cursor-pointer"
                   >
-                    <Mic className="h-8 w-8" />
+                    <Mic className="h-7 w-7" />
                   </button>
                   <button
                     onClick={handleSend}
